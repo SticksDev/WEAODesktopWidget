@@ -21,7 +21,8 @@ jobs:
                   pip install -r requirements.txt
             - name: Package
               run: |
-                  bash scripts/package.sh
+                  pwsh -File scripts/package.ps1
+                  dir
             - name: Upload
               uses: actions/upload-artifact@v2
               with:
