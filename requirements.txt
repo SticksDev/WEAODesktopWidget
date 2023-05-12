@@ -1,0 +1,3 @@
+customtkinter==5.1.3
+Requests==2.30.0
+Windows_Toasts==0.4.1
