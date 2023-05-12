@@ -14,6 +14,7 @@ import ctypes
 import datetime
 import sys
 import platform
+import webbrowser
 
 # Load theme prefs
 ctk.set_appearance_mode("dark")
@@ -118,8 +119,22 @@ class WEAOSettingsPage(ctk.CTk):
         settings_label.pack()
 
 
-def update_check():
-    pass
+def update_check(showEvenIfUpToDate: bool = False):
+    r = requests.get("https://raw.githubusercontent.com/SticksDev/WEAODesktopWidget/main/version.json")
+    r = r.json()
+
+    if r["latest"] != version:
+        if r["forceupdate"]:   
+            ctypes.windll.user32.MessageBoxW(0, f"An update is required to continue using the WEAO Desktop Widget. Please visit the releases page to download the latest version.\n\nCurrent Version: {version}\nLatest Version: {r['latest']}\nChanges: {r['changes']}", "WEAO Desktop Widget: Update Required", 0x10)
+            webbrowser.open("https://github.com/SticksDev/WEAODesktopWidget/releases/")
+            exit(0)
+        else:
+            ctypes.windll.user32.MessageBoxW(0, f"An update is available for the WEAO Desktop Widget. Please visit the releases page to download the latest version.\n\nCurrent Version: {version}\nLatest Version: {r['latest']}\nChanges: {r['changes']}", "WEAO Desktop Widget: Update Available", 0x40)
+            webbrowser.open("https://github.com/SticksDev/WEAODesktopWidget/releases/")
+    else:
+        if showEvenIfUpToDate:
+            ctypes.windll.user32.MessageBoxW(0, f"You are running the latest version of the WEAO Desktop Widget.\n\nCurrent Version: {version}\nLatest Version: {r['version']}", "WEAO Desktop Widget: Up To Date", 0x40)
+
 
 class WEAODesktopWidgetApp(ctk.CTk):
     refreshTimerUserPref = 250
@@ -282,6 +297,8 @@ class WEAODesktopWidgetApp(ctk.CTk):
 
 if __name__ == "__main__":
     try: 
+        # Check for updates BEFORE the app is initialized
+        update_check()
         app = WEAODesktopWidgetApp()
         app.mainloop()
     except Exception as e:
@@ -297,5 +314,6 @@ if __name__ == "__main__":
             f.write(f"Stacktrace: {e}\n")
             f.write("========================================\n")
 
+        print("[ERR]: An error occured while running the app: " + str(e))
         # Exit the app
         exit(1)
