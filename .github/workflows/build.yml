@@ -1,0 +1,33 @@
+name: Build
+on:
+  push:
+    branches:
+      - main
+jobs:
+    # Prepare python 3.10
+    build3101:
+        name: Build (Python 3.10.1)
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Set up Python 3.10
+              uses: actions/setup-python@v2
+              with:
+                  python-version: 3.10.1
+            - name: Install dependencies
+              run: |
+                  python -m pip install --upgrade pip
+                  pip install -r requirements.txt
+            - name: Package
+              run: |
+                  bash scripts/package.sh
+            - name: Upload
+              uses: actions/upload-artifact@v2
+              with:
+                  name: package
+                  path: package
+            
+
+
+    
