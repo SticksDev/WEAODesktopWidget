@@ -1,4 +1,7 @@
-(insert image here)
+<p align="center">
+<img src="https://github.com/SticksDev/WEAODesktopWidget/assets/5618953/b006d247-8c23-4475-8bf7-7ffd81668565"></img>
+</p>
+
 
 
 # WEAO Desktop Widget
@@ -6,7 +9,7 @@ This is a Desktop client for the exploit checker website [whatexploitsare.online
 
 ## Demo
 
-(insert on github)
+[On Streamable](https://streamable.com/tkcl4f)
 
 ## Installation
 
@@ -16,6 +19,10 @@ This app should support all platforms that support Python and tkinter. However, 
 You can download the executable from the [releases page](https://github.com/SticksDev/WEAODesktopWidget/releases) and run it. This is the easiest way to install the app, and it includes all the dependencies.
 
 ### 2. Build from source
+
+> **Warning**
+> This method is isn't recommended for normal users! You must have a terminal window open to run the app this way! 
+
 If you don't trust the executable, or you want to make changes to the app, you can build it from source. To do this, you need to have Python 3.10 installed. You can download it from [here](https://www.python.org/downloads/). Make sure to check the box that says "Add Python 3.10 to PATH". Then, download the source code from the [releases page](https://github.com/SticksDev/WEAODesktopWidget/releases)
 
 Then run the following commands in the directory you downloaded the source code to:
@@ -24,7 +31,7 @@ pip install -r requirements.txt
 python app.py
 ```
 
-The app should now be running. You can make changes to the source code and run the app again to see the changes. Note that this isn't recommended for normal users, as it's much easier to just download the executable.
+The app should now be running. You can make changes to the source code and run the app again to see the changes.
 
 
 ## Contributing
