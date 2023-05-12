@@ -3,6 +3,10 @@ on:
   push:
     branches:
       - main
+
+env:
+  GITHUB_SHA: ${{ github.sha }}
+
 jobs:
     # Prepare python 3.10
     build3101:
