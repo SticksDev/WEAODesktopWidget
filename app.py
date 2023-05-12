@@ -155,7 +155,7 @@ class WEAODesktopWidgetApp(ctk.CTk):
             self.after(1000, self._refreshTimerTick)
         else:
             # Reset the timer
-            self.refreshTimer = 5
+            self.refreshTimer = self.refreshTimerUserPref
 
             # Inform the user that the exploits are being reloaded
             self.refreshTextWidget.configure(
