@@ -19,7 +19,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install pylint
-        pip install PIL
+        pip install Pillow
     - name: Analysing the code with pylint
       run: |
         pylint $(git ls-files '*.py') --output-format=colorized --score=n --rcfile=.pylintrc
