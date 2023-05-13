@@ -22,11 +22,11 @@ jobs:
             - name: Package
               run: |
                   pwsh -File scripts/package.ps1
-                  dir
+                  dir build
             - name: Upload
               uses: actions/upload-artifact@v2
               with:
-                  name: ${{ env.FILENAME }}
+                  name: build
                   path: dist
             
 
