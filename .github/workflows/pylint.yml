@@ -21,4 +21,4 @@ jobs:
         pip install pylint
     - name: Analysing the code with pylint
       run: |
-        pylint $(git ls-files '*.py') --output-format=colorized --score=n --rcfile=pylintrc
+        pylint $(git ls-files '*.py') --output-format=colorized --score=n --rcfile=.pylintrc
