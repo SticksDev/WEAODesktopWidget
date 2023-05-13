@@ -329,7 +329,7 @@ class WEAODesktopWidgetApp(ctk.CTk):
         self.exploitStatusesWidget = WEAOExploitsScrollabelFrame(self)
 
         # Get the roblox version
-        rbx_version = self.getRobloxVersion()
+        rbx_version = self.get_roblox_version()
 
         # Add a logo
         logo = ctk.CTkImage(dark_image=logo_img, light_image=logo_img, size=(100, 100))
