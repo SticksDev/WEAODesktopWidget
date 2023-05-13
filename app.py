@@ -418,6 +418,7 @@ if __name__ == "__main__":
         )
 
         # Generate a crashlog-date file
+        # pylint: disable=unspecified-encoding
         with open(
             f"crashlog-{datetime.datetime.now().strftime('%Y-%m-%d')}.txt", "w"
         ) as f:
