@@ -26,8 +26,8 @@ jobs:
             - name: Upload
               uses: actions/upload-artifact@v2
               with:
-                  name: package
-                  path: build
+                  name: ${{ env.FILENAME }}
+                  path: dist
             
 
 
